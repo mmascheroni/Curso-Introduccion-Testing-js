@@ -65,10 +65,10 @@ jobs:
         - name: Checkout # Clona nuestro repositorio
           uses: actions/checkout@v2
         - name: install # Instalar dependencias
-          shell: cmd
+          shell: bash
           run: npm ci
         - name: run e2e
-          shell: cmd
+          shell: bash
           run: npm run test:e2e
           env:
             MONGO_DB_NAME: demo
