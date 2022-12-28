@@ -27,6 +27,6 @@ jobs:
       - name: install # Instalar dependencias
         shell: cmd
         run: npm ci
-      - name: run unit test
+      - name: run static test
         shell: cmd
         run: npm run lint
