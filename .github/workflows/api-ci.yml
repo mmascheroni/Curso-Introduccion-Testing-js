@@ -21,12 +21,12 @@ jobs:
       - name: Setup Nodejs
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 18
           cache: 'npm'
           cache-dependency-path: ./api/package-lock.json
       - name: install # Instalar dependencias
-        shell: bash
+        shell: cmd
         run: npm ci
       - name: run unit test
-        shell: bash
+        shell: cmd
         run: npm run test
