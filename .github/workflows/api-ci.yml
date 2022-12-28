@@ -13,6 +13,23 @@ defaults:
 
 #La forma de github para automatizar
 jobs:
+  static-linter-test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout # Clona nuestro repositorio
+        uses: actions/checkout@v2
+      - name: Setup Nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: ./api/package-lock.json
+      - name: install # Instalar dependencias
+        shell: cmd
+        run: npm ci
+      - name: run linter
+        shell: cmd
+        run: npm run lint:fix
   unit-test:
     runs-on: windows-latest
     steps:
